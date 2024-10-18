@@ -1,14 +1,8 @@
-# Kasa API
+# React + Vite
 
-## Prerequisites
-You need Docker to launch the app API or you can use service installing nodejs on your system and running in backend forlder the following commandes: `npm install` then `npm start`
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Launch Project
+Currently, two official plugins are available:
 
-With Docker run command
-
-`docker-compose up -d`
-
-To stop project run
-`docker-compose down`
-
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
