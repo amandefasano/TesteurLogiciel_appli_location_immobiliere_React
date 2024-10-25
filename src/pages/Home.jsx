@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Outlet } from "react-router-dom";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import { NavLink } from "react-router-dom";
 import Banner from "../components/Banner";
 import Card from "../components/Card";
 
@@ -21,11 +19,6 @@ function Home() {
 
   return (
     <>
-      <Header />
-      <div id="about">
-        <Outlet />
-      </div>
-
       <Banner
         img_src={"/src/assets/banner.png"}
         p={"Chez vous, partout et ailleurs"}
@@ -35,13 +28,14 @@ function Home() {
           {locations.map((location) => {
             return (
               <li key={location.id}>
-                <Card cover={location.cover} title={location.title} />
+                <NavLink to={`/locations/${location.id}`}>
+                  <Card cover={location.cover} title={location.title} />
+                </NavLink>
               </li>
             );
           })}
         </ul>
       </div>
-      <Footer />
     </>
   );
 }
