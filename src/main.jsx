@@ -14,8 +14,9 @@ import About from "./pages/About";
 import Location, { loader as locationLoader } from "./pages/Location";
 
 const GlobalStyle = createGlobalStyle`
-div{
+body{
   font-family: "Montserrat";
+  margin: 0 6.25rem /*0 100px*/
 }
 `;
 
