@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import Banner from "../components/Banner";
 import Card from "../components/Card";
+import styled from "styled-components";
 
 function Home() {
   const url = "http://localhost:8080/api/properties";
@@ -17,25 +18,53 @@ function Home() {
     fetchData();
   }, []);
 
+  const LocationsDiv = styled.div`
+    margin: 2.687rem 0 3.125rem; /*43px 0 50px*/
+  `;
+
+  const LocationsGrid = styled.ul`
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    // grid-template-rows: 21.25rem; /*340px*/
+    gap: 3.125rem 3.75rem; /*50px 60px*/
+    background-color: #f6f6f6;
+    border-radius: 25px;
+    list-style-type: none;
+    padding: 3.125rem; /*50px*/
+    margin: 0;
+  `;
+
+  const CardLink = styled(NavLink)`
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+  `;
+
+  const StyledLi = styled.li`
+  padding: 0;
+  margin: 0;
+  height: 17.937rem; /*287px*/
+  `
+
   return (
     <>
       <Banner
         img_src={"/src/assets/banner.png"}
         p={"Chez vous, partout et ailleurs"}
       />
-      <div className="locations">
-        <ul>
+      <LocationsDiv>
+        <LocationsGrid>
           {locations.map((location) => {
             return (
-              <li key={location.id}>
-                <NavLink to={`/locations/${location.id}`}>
+              <CardLink to={`/locations/${location.id}`}>
+                <StyledLi key={location.id}>
                   <Card cover={location.cover} title={location.title} />
-                </NavLink>
-              </li>
+                </StyledLi>
+              </CardLink>
             );
           })}
-        </ul>
-      </div>
+        </LocationsGrid>
+      </LocationsDiv>
     </>
   );
 }
