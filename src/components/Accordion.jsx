@@ -46,7 +46,7 @@ export default function Accordion({ id, header, details }) {
         <h2>{header}</h2>
         <img id="up" src="/src/assets/arrow-up.svg" alt="arrow" />
       </div>
-      <p>{details}</p>
+      <div>{details}</div>
     </>
   );
 }

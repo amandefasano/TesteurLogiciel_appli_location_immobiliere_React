@@ -1,3 +1,5 @@
+import styled from "styled-components";
+
 export default function Slider({ photos }) {
   let j = 0;
 
@@ -39,26 +41,80 @@ export default function Slider({ photos }) {
     slider_img.src = photos[j];
   }
 
+  // let arrowsDiv = document.getElementById("arrows");
+  // console.log(arrowsDiv.classList);
+
+  // if (photos.length > 1) {
+  //   arrowsDiv.classList.remove("hidden");
+  // } else {
+  //   arrowsDiv.classList.add("hidden");
+  // }
+
+  const Gallery = styled.div`
+    position: relative;
+    width: 100%;
+    height: 25.937rem; /*415px*/
+  `;
+
+  const Picture = styled.img`
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 25px;
+  `;
+
+  const Arrows = styled.div`
+    position: relative;
+    &.hidden {
+      display: none;
+    }
+  `;
+
+  const ArrowLeft = styled.img`
+    position: absolute;
+    top: 9.268rem; /*148.3px*/
+    left: 1.46rem; /*23.36px*/
+  `;
+
+  const ArrowRight = styled.img`
+    position: absolute;
+    top: 9.268rem; /*148.3px*/
+    right: 1.46rem; /*23.36px*/
+  `;
+
+  const Pagination = styled.p`
+    position: absolute;
+    left: 50%;
+    bottom: 1.557rem; /*24.92px*/
+    color: #ffffff;
+    font-size: 1.125rem; /*18px*/
+    font-weight: 500;
+    margin: 0;
+  `;
+
   return (
-    <div id="slider">
-      <img className="slider_img" src={photos[0]} alt="Location pictures" />
-      <div className="arrow">
-        <img
+    <Gallery id="slider">
+      <Picture className="slider_img" src={photos[0]} alt="Location pictures" />
+      <Arrows id="arrows" className={photos.length === 1 ? "hidden" : "shown"}>
+        <ArrowLeft
           onClick={handleLeftArrowClick}
           className="arrow_left"
           src="/src/assets/arrow-left.svg"
           alt="Slider left arrow"
         />
-        <img
+        <ArrowRight
           onClick={handleRightArrowClick}
           className="arrow_right"
           src="/src/assets/arrow-right.svg"
           alt="Slider right arrow"
         />
-      </div>
-      <p className="pagination">
+      </Arrows>
+      <Pagination className="pagination">
         <span id="picture">1</span>/{photos.length}
-      </p>
-    </div>
+      </Pagination>
+    </Gallery>
   );
 }
