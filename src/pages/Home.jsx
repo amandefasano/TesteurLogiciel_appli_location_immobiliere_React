@@ -41,10 +41,11 @@ function Home() {
   `;
 
   const StyledLi = styled.li`
-  padding: 0;
-  margin: 0;
-  height: 17.937rem; /*287px*/
-  `
+    padding: 0;
+    margin: 0;
+    height: 21.25rem; /*340px*/
+    // height: 17.937rem; /*287px*/
+  `;
 
   return (
     <>

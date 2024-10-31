@@ -15,8 +15,8 @@ export default function Banner({ img_src, p }) {
     justify-content: center;
     background-color: #000000;
     opacity: 0.6;
-    width: 67.562rem; /*1081px*/
-    // width: 100%;
+    width: 77.5rem; /*1240px*/
+    // width: 67.562rem; /*1081px*/
     height: 13.937rem; /*223px*/
     border-radius: 1.562rem; /*25px*/
     position: absolute;
