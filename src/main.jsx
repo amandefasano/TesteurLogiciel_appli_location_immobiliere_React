@@ -18,6 +18,9 @@ body{
   font-family: "Montserrat";
   margin: 0 6.25rem /*0 100px*/
 }
+p{
+margin: 0;
+}
 `;
 
 const router = createBrowserRouter([
