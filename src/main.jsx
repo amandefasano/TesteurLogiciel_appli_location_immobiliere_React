@@ -1,20 +1,33 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider, /*BrowserRouter, Routes, Route*/ } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider /*BrowserRouter, Routes, Route*/,
+} from "react-router-dom";
+import { createGlobalStyle } from "styled-components";
 
 /* pages */
 import Root from "./pages/Root";
 import ErrorPage from "./ErrorPage";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Location, {loader as locationLoader} from "./pages/Location";
+import Location, { loader as locationLoader } from "./pages/Location";
+
+const GlobalStyle = createGlobalStyle`
+div{
+  font-family: "Montserrat";
+}
+`;
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    errorElement: <ErrorPage />,
     children: [
+      {
+        path: "*",
+        element: <ErrorPage />,
+      },
       {
         path: "/",
         element: <Home />,
@@ -41,6 +54,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="*" element={<ErrorPage />}/> 
       </Routes> */}
     {/* </BrowserRouter> */}
+    <GlobalStyle />
     <RouterProvider router={router} />
   </React.StrictMode>
 );
