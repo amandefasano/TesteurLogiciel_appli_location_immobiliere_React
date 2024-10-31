@@ -10,10 +10,10 @@ export default function About() {
   return (
     <div id="about">
       <Banner img_src={"/src/assets/about-banner.png"} />
-      <Accordion header="Fiabilité" details={reliability}/>
-      <Accordion header="Respect" details={respect}/>
-      <Accordion header="Service" details={service}/>
-      <Accordion header="Sécurité" details={security}/>
+      <Accordion id="reliability" header="Fiabilité" details={reliability}/>
+      <Accordion id="respect" header="Respect" details={respect}/>
+      <Accordion id="service" header="Service" details={service}/>
+      <Accordion id="security" header="Sécurité" details={security}/>
     </div>
   );
 }

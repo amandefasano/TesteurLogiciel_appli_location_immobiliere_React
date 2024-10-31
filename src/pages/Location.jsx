@@ -37,16 +37,16 @@ function Location() {
         <ul>
           {stars.map((star) => {
             return (
-              <li key={Math.floor(Math.random() * 6)}>
+              <li key={Math.floor(Math.random() * 66)}>
                 <img src={star} alt="star" />
               </li>
             );
           })}
         </ul>
       </div>
-      <Accordion id="description-acc" header="Description" details={location.description} />
+      <Accordion id="description" header="Description" details={location.description} />
       <Accordion
-        id="equipment-acc"
+        id="equipment"
         header="Équipements"
         details={
           <ul>
