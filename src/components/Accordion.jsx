@@ -2,28 +2,7 @@ import styled from "styled-components";
 
 export default function Accordion({ id, header, details }) {
   function handleClick() {
-    let arrow = "";
-
-    switch (id) {
-      case "description":
-        arrow = document.querySelector("#description img");
-        break;
-      case "equipment":
-        arrow = document.querySelector("#equipment img");
-        break;
-      case "reliability":
-        arrow = document.querySelector("#reliability img");
-        break;
-      case "respect":
-        arrow = document.querySelector("#respect img");
-        break;
-      case "service":
-        arrow = document.querySelector("#service img");
-        break;
-      case "security":
-        arrow = document.querySelector("#security img");
-        break;
-    }
+    let arrow = document.querySelector(`#${id} img`);
 
     if (arrow.getAttribute("id") === "up") {
       arrow.src = "/src/assets/arrow-down.svg";
@@ -34,34 +13,74 @@ export default function Accordion({ id, header, details }) {
     }
   }
 
-  const Wrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-  `
+  return (
+    <AccordionContainerStyle>
+      <div id={id} onClick={handleClick} className="accordion-header">
+        <h2>{header}</h2>
+        <img id="up" src="/src/assets/arrow-up.svg" alt="arrow" />
+      </div>
+      <div className="details">
+        {typeof details === "string" ? (
+          <p>{details}</p>
+        ) : (
+          <ul>
+            {details.map((equipment) => {
+              return <li key={equipment}>{equipment}</li>;
+            })}
+          </ul>
+        )}
+      </div>
+    </AccordionContainerStyle>
+  );
+}
 
-  const Header = styled.div`
+const AccordionContainerStyle = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .accordion-header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     position: relative;
-    background-color: #FF6060;
+    width: 100%;
+    background-color: #ff6060;
     color: #ffffff;
     border-radius: 10px;
-  `;
+  }
 
-  const Arrow = styled.img`
+  h2 {
+    margin: 0.937rem; /*15px*/
+  }
+
+  img {
     position: absolute;
     right: 1.125rem; /*18px*/
-    top: 1.5rem; /*24px*/
-  `
+    bottom: 1.5rem; /*24px*/
+  }
 
-  return (
-    <Wrapper>
-      <Header id={id} onClick={handleClick} className="accordion-header">
-        <h2>{header}</h2>
-        <Arrow id="up" src="/src/assets/arrow-up.svg" alt="arrow" />
-      </Header>
-      <div>{details}</div>
-    </Wrapper>
-  );
-}
+  .details {
+    margin: 1.562rem 0 0 1.25rem; /*25px 0 0 20px*/
+    font-size: 1.125rem; /*18px*/
+    color: #000000;
+  }
+
+  .details ul {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul li {
+    justify-content: flex-start;
+    background-color: transparent;
+    color: #000000;
+    font-size: 1.125rem; /*18px*/
+    font-weight: 400;
+    width: 100%;
+    margin-bottom: 0.125rem; /*2px*/
+  }
+`;

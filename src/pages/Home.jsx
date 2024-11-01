@@ -51,7 +51,7 @@ function Home() {
     <>
       <Banner
         img_src={"/src/assets/banner.png"}
-        p={"Chez vous, partout et ailleurs"}
+        tagline={"Chez vous, partout et ailleurs"}
       />
       <LocationsDiv>
         <LocationsGrid>

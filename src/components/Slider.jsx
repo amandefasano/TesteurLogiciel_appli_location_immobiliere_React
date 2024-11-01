@@ -84,6 +84,9 @@ export default function Slider({ photos }) {
     font-size: 1.125rem; /*18px*/
     font-weight: 500;
     margin: 0;
+    &.hidden {
+      display: none;
+    }
   `;
 
   return (
@@ -103,7 +106,7 @@ export default function Slider({ photos }) {
           alt="Slider right arrow"
         />
       </Arrows>
-      <Pagination className="pagination">
+      <Pagination className={photos.length === 1 ? "hidden" : "pagination"}>
         <span id="picture">1</span>/{photos.length}
       </Pagination>
     </Gallery>

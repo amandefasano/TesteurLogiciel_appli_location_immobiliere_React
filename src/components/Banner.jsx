@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export default function Banner({ img_src, p }) {
+export default function Banner({ img_src, tagline }) {
   const Wrapper = styled.div`
     position: relative;
     max-width: 77.5rem; /*1240px*/
@@ -37,7 +37,7 @@ export default function Banner({ img_src, p }) {
     <>
       <Wrapper id="banner">
         <Image src={img_src}></Image>
-        { p ? <StyledP>{p}</StyledP> : ""}
+        { tagline ? <StyledP>{tagline}</StyledP> : ""}
       </Wrapper>
     </>
   );
