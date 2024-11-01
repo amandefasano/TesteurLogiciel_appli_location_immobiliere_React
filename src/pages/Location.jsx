@@ -17,7 +17,7 @@ function Location() {
   const stars = buildRating(rating);
   const name = location.host.name.split(" ");
 
-  const Intro = styled.section`
+  const Wrapper = styled.section`
     display: flex;
     justify-content: space-between;
   `;
@@ -57,12 +57,44 @@ function Location() {
     border-radius: 100px;
     width: 4rem; /*64px*/
     height: 4rem; /*64px*/
-  `
+  `;
+
+  const StyledList = styled.ul`
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    list-style-type: none;
+    margin: 1.25rem 0 0; /*20px*/
+    padding: 0;
+    width: 40%;
+    &.stars {
+      width: 30%;
+      justify-content: flex-end;
+    }
+  `;
+
+  const StyledLi = styled.li`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 33%;
+    background-color: #ff6060;
+    color: #ffffff;
+    font-size: 0.875rem; /*14px*/
+    font-weight: bold;
+    border-radius: 10px;
+    margin-right: 0.625rem; /*10px*/
+    &.star {
+    background-color: transparent;
+    margin-right: 0;
+    width: 10%;
+    }
+  `;
 
   return (
     <div id="location">
       <Slider photos={photos} />
-      <Intro>
+      <Wrapper>
         <div>
           <Title>{location.title}</Title>
           <District>{location.location}</District>
@@ -75,25 +107,23 @@ function Location() {
           </HostName>
           <HostPicture src={location.host.picture} alt="Host profile picture" />
         </Host>
-      </Intro>
-      <div className="tags">
-        <ul>
+      </Wrapper>
+      <Wrapper>
+        <StyledList>
           {location.tags.map((tag) => {
-            return <li key={tag}>{tag}</li>;
+            return <StyledLi key={tag}>{tag}</StyledLi>;
           })}
-        </ul>
-      </div>
-      <div className="rating">
-        <ul>
+        </StyledList>
+        <StyledList className="stars">
           {stars.map((star) => {
             return (
-              <li key={Math.floor(Math.random() * 66)}>
+              <StyledLi className="star" key={Math.floor(Math.random() * 66)}>
                 <img src={star} alt="star" />
-              </li>
+              </StyledLi>
             );
           })}
-        </ul>
-      </div>
+        </StyledList>
+      </Wrapper>
       <Accordion
         id="description"
         header="Description"

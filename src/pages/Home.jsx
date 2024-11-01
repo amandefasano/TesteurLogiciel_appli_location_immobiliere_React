@@ -58,7 +58,7 @@ function Home() {
           {locations.map((location) => {
             return (
               <CardLink key={location.id} to={`/locations/${location.id}`}>
-                <StyledLi >
+                <StyledLi>
                   <Card cover={location.cover} title={location.title} />
                 </StyledLi>
               </CardLink>
