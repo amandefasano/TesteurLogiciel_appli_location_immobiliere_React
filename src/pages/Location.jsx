@@ -88,9 +88,9 @@ function Location() {
     border-radius: 10px;
     margin-right: 0.625rem; /*10px*/
     &.star {
-    background-color: transparent;
-    margin-right: 0;
-    width: 10%;
+      background-color: transparent;
+      margin-right: 0;
+      width: 10%;
     }
   `;
 
@@ -127,22 +127,24 @@ function Location() {
           })}
         </StyledList>
       </Wrapper>
-      <Accordion
-        id="description"
-        header="Description"
-        details={location.description}
-      />
-      <Accordion
-        id="equipment"
-        header="Équipements"
-        details={
-          <ul>
-            {location.equipments.map((equipment) => {
-              return <li key={equipment}>{equipment}</li>;
-            })}
-          </ul>
-        }
-      />
+      <Wrapper>
+        <Accordion
+          id="description"
+          header="Description"
+          details={location.description}
+        />
+        <Accordion
+          id="equipment"
+          header="Équipements"
+          details={
+            <ul>
+              {location.equipments.map((equipment) => {
+                return <li key={equipment}>{equipment}</li>;
+              })}
+            </ul>
+          }
+        />
+      </Wrapper>
     </div>
   );
 }
