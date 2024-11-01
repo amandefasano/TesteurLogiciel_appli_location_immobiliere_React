@@ -67,6 +67,9 @@ function Location() {
     margin: 1.25rem 0 0; /*20px*/
     padding: 0;
     width: 40%;
+    &.wide {
+      width: 55%;
+    }
     &.stars {
       width: 30%;
       justify-content: flex-end;
@@ -109,7 +112,7 @@ function Location() {
         </Host>
       </Wrapper>
       <Wrapper>
-        <StyledList>
+        <StyledList className={location.tags.length > 4 ? "wide" : "tight"}>
           {location.tags.map((tag) => {
             return <StyledLi key={tag}>{tag}</StyledLi>;
           })}

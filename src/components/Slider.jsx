@@ -41,15 +41,6 @@ export default function Slider({ photos }) {
     slider_img.src = photos[j];
   }
 
-  // let arrowsDiv = document.getElementById("arrows");
-  // console.log(arrowsDiv.classList);
-
-  // if (photos.length > 1) {
-  //   arrowsDiv.classList.remove("hidden");
-  // } else {
-  //   arrowsDiv.classList.add("hidden");
-  // }
-
   const Gallery = styled.div`
     position: relative;
     width: 100%;
