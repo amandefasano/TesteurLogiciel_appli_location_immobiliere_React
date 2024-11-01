@@ -22,8 +22,8 @@ export default function Banner({ img_src, p }) {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #000000;
-    opacity: 0.6;
+    // background-color: #000000;
+    // opacity: 0.6;
     width: 100%;
     height: 100%;
     color: #ffffff;
@@ -37,7 +37,7 @@ export default function Banner({ img_src, p }) {
     <>
       <Wrapper id="banner">
         <Image src={img_src}></Image>
-        <StyledP className={p ? "banner-text" : "display-none"}>{p}</StyledP>
+        { p ? <StyledP>{p}</StyledP> : ""}
       </Wrapper>
     </>
   );
