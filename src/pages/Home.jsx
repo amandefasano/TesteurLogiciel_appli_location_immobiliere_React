@@ -50,7 +50,8 @@ function Home() {
   return (
     <>
       <Banner
-        img_src={"/src/assets/banner.png"}
+        opacity="0.6"
+        img_src={"/src/assets/banner.svg"}
         tagline={"Chez vous, partout et ailleurs"}
       />
       <LocationsDiv>

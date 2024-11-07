@@ -9,7 +9,8 @@ export default function Accordion({ id, header, details }) {
       arrow.style = 'transition: transform 0.6s; transform: rotate(-180deg);';
       arrow.setAttribute("id", "down");
 
-      details.style = 'transition: opacity 1s, line-height 1s; opacity: 1; line-height: normal;'
+      details.style = 'transition: opacity 0.5s, line-height 1s; opacity: 1; line-height: normal;'
+    
     } else {
       arrow.style = 'transition: transform 0.6s; transform: rotate(0deg);';
       arrow.setAttribute("id", "up");
@@ -68,10 +69,7 @@ const AccordionContainerStyle = styled.div`
     position: absolute;
     right: 1.125rem; /*18px*/
     bottom: 1.5rem; /*24px*/
-    // transition: transform 0.5s;
-    // &:active {
-    //   transform: rotate(-3.1416rad);
-    // }
+    cursor: pointer;
   }
 
   .details {

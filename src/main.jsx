@@ -44,6 +44,7 @@ const router = createBrowserRouter([
         path: "/locations/:locationId",
         element: <Location />,
         loader: locationLoader,
+        errorElement: <ErrorPage />,
       },
     ],
   },
