@@ -68,12 +68,14 @@ export default function Slider({ photos }) {
     position: absolute;
     top: 9.268rem; /*148.3px*/
     left: 1.46rem; /*23.36px*/
+    cursor: pointer;
   `;
 
   const ArrowRight = styled.img`
     position: absolute;
     top: 9.268rem; /*148.3px*/
     right: 1.46rem; /*23.36px*/
+    cursor: pointer;
   `;
 
   const Pagination = styled.p`

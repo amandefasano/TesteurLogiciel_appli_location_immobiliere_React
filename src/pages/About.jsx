@@ -1,5 +1,6 @@
 import Banner from "../components/Banner";
 import Accordion from "../components/Accordion";
+import styled from "styled-components";
 
 export default function About() {
   const reliability = "Les annonces postées sur Kasa garantissent une fiabilité totale. Les photos sont conformes aux logements, et toutes les informations sont régulièrement vérifiées par nos équipes.";
@@ -8,12 +9,27 @@ export default function About() {
   const security = "La sécurité est la priorité de Kasa. Aussi bien pour nos hôtes que pour les voyageurs, chaque logement correspond aux critères de sécurité établis par nos services. En laissant une note aussi bien à l'hôte qu'au locataire, cela permet à nos équipes de vérifier que les standards sont bien respectés. Nous organisons également des ateliers sur la sécurité domestique pour nos hôtes.";
 
   return (
-    <div id="about">
+    <AboutContainerStyled>
       <Banner img_src={"/src/assets/about-banner.png"} />
+      <div className="accordion">
       <Accordion id="reliability" header="Fiabilité" details={reliability}/>
+      </div>
+      <div className="accordion">
       <Accordion id="respect" header="Respect" details={respect}/>
+      </div>
+      <div className="accordion">
       <Accordion id="service" header="Service" details={service}/>
+      </div>
+      <div className="accordion">
       <Accordion id="security" header="Sécurité" details={security}/>
-    </div>
+      </div>
+    </AboutContainerStyled>
   );
 }
+
+const AboutContainerStyled = styled.section`
+margin-bottom: 1.875rem; /*30px*/
+  .accordion{
+    margin-top: 1.875rem; /*30px*/
+  }
+`
