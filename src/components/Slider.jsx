@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
 export default function Slider({ photos }) {
-  console.log(photos.length);
-
   let j = 0;
 
   /* Event listener on left arrow */

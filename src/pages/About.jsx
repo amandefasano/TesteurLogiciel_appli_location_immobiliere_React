@@ -14,7 +14,7 @@ export default function About() {
 
   return (
     <AboutContainerStyled>
-      <Banner className="banner" img_src={"/src/assets/about-banner.png"} />
+      <Banner className="banner" opacity="0.3" img_src={"/src/assets/about-banner.png"} />
       <div className="accordion">
         <Accordion id="reliability" header="Fiabilité" details={reliability} />
       </div>

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Slider from "../components/Slider";
 import { getLocation } from "../data/locations";
 import Accordion from "../components/Accordion";
+import { Rating } from "../components/Rating";
 
 export async function loader({ params }) {
   const location = await getLocation(params.locationId);
@@ -14,45 +15,38 @@ function Location() {
 
   const photos = location.pictures;
   const rating = location.rating;
-  const stars = buildRating(rating);
   const name = location.host.name.split(" ");
 
   return (
     <LocationContainerStyled id="location">
       <Slider photos={photos} />
-      <section className="wrapper">
-        <div>
-          <h1 className="title">{location.title}</h1>
-          <p className="district">{location.location}</p>
-        </div>
-        <div className="host">
-          <div className="hostName">
-            {name.map((part) => {
-              return <p key={part}>{part}</p>;
-            })}
+      <section id="info-wrapper">
+        <section className="location-wrapper">
+          <div>
+            <h1 className="title">{location.title}</h1>
+            <p className="district">{location.location}</p>
           </div>
-          <img
-            className="hostPicture"
-            src={location.host.picture}
-            alt="Host profile picture"
-          />
-        </div>
-      </section>
-      <section className="wrapper">
-        <ul className={location.tags.length > 4 ? "wide" : "tight"}>
-          {location.tags.map((tag) => {
-            return <li key={tag}>{tag}</li>;
-          })}
-        </ul>
-        <ul className="stars">
-          {stars.map((star, index) => {
-            return (
-              <li className="star" key={`star-${index}`}>
-                <img src={star} alt="star" />
-              </li>
-            );
-          })}
-        </ul>
+          <ul className={location.tags.length > 4 ? "wide" : "tight"}>
+            {location.tags.map((tag) => {
+              return <li key={tag}>{tag}</li>;
+            })}
+          </ul>
+        </section>
+        <section className="host-wrapper">
+          <div className="host">
+            <div className="hostName">
+              {name.map((part) => {
+                return <p key={part}>{part}</p>;
+              })}
+            </div>
+            <img
+              className="hostPicture"
+              src={location.host.picture}
+              alt="Host profile picture"
+            />
+          </div>
+          <Rating rating={rating}></Rating>
+        </section>
       </section>
       <section id="accordion-wrapper" className="wrapper">
         <Accordion
@@ -70,30 +64,18 @@ function Location() {
   );
 }
 
-function buildRating(rating) {
-  let stars = [];
-
-  for (let i = 1; i <= 5; i++) {
-    if (i <= rating) {
-      stars.push("/src/assets/pink-star.svg");
-    } else {
-      stars.push("/src/assets/grey-star.svg");
-    }
+const LocationContainerStyled = styled.div`
+  #info-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
-  return stars;
-}
-
-const LocationContainerStyled = styled.div`
-  .wrapper {
+  .location-wrapper {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    &#accordion-wrapper {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4.75rem; /*76px*/
-      margin: 1.5rem 0 3.125rem; /*24px 0 50px*/
-    }
+    width: 50%;
   }
 
   .title {
@@ -105,7 +87,6 @@ const LocationContainerStyled = styled.div`
   }
 
   .district {
-    margin: 0 0 1.25rem 0; /*0 0 20px 0*/
     color: #000000;
     font-size: 1.125rem; /*18px*/
     font-weight: 500;
@@ -115,6 +96,8 @@ const LocationContainerStyled = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: end;
+    margin-top: 1.5rem; /*24px*/
   }
 
   .hostName {
@@ -124,56 +107,68 @@ const LocationContainerStyled = styled.div`
     color: #ff6060;
     font-size: 1.125rem; /*18px*/
     font-weight: 500;
-    margin-right: 0.625rem; /*10px*/
   }
 
   .hostPicture {
     border-radius: 100px;
     width: 4rem; /*64px*/
     height: 4rem; /*64px*/
+    margin-left: 0.625rem; /*10px*/
   }
 
-  ul {
+  .location-wrapper ul {
     display: flex;
     flex-direction: row;
     position: relative;
     list-style-type: none;
-    margin: 1.25rem 0 0; /*20px*/
+    margin: 1.25rem 0 1.5rem; /*20px 0 24px*/
     padding: 0;
-    width: 40%;
+    width: 75%;
     &.wide {
-      width: 55%;
+      width: 100%;
     }
-    &.stars {
-      width: 30%;
-      justify-content: flex-end;
-      margin-bottom: 0.437rem; /*7px*/
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 33%;
+      background-color: #ff6060;
+      color: #ffffff;
+      font-size: 0.875rem; /*14px*/
+      font-weight: bold;
+      border-radius: 10px;
+      margin-right: 0.625rem; /*10px*/
+      padding: 0.25rem 0; /*4px*/
     }
   }
 
-  li {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 33%;
-    background-color: #ff6060;
-    color: #ffffff;
-    font-size: 0.875rem; /*14px*/
-    font-weight: bold;
-    border-radius: 10px;
-    margin-right: 0.625rem; /*10px*/
-    &.star {
-      background-color: transparent;
-      margin-right: 0;
-      width: 10%;
-    }
+  #accordion-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4.75rem; /*76px*/
   }
 
   /****** Media queries ***********/
   /* Small devices (smartphones, less than/equal to 375px) */
   @media (max-width: 376px) {
+    #info-wrapper {
+      flex-direction: column;
+    }
+
     .title {
       font-size: 1.125rem; /*18px*/
+    }
+
+    .host-wrapper {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+
+    #accordion-wrapper {
+      display: grid;
+      grid-template-columns: 100%;
+      grid-template-rows: 3.125rem 3.125rem; /*50px 50px*/
     }
   }
 `;
