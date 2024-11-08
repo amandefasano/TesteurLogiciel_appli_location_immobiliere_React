@@ -4,18 +4,19 @@ export default function Accordion({ id, header, details }) {
   function handleClick() {
     let details = document.querySelector(`#${id} + div`);
     let arrow = document.querySelector(`#${id} img`);
-    
+
     if (arrow.getAttribute("id") === "up") {
-      arrow.style = 'transition: transform 0.6s; transform: rotate(-180deg);';
+      arrow.style = "transition: transform 0.6s; transform: rotate(-180deg);";
       arrow.setAttribute("id", "down");
 
-      details.style = 'transition: opacity 0.5s, line-height 1s; opacity: 1; line-height: normal;'
-    
+      details.style =
+        "transition: opacity 0.5s, line-height 1s; opacity: 1; line-height: 100%;";
     } else {
-      arrow.style = 'transition: transform 0.6s; transform: rotate(0deg);';
+      arrow.style = "transition: transform 0.6s; transform: rotate(0deg);";
       arrow.setAttribute("id", "up");
 
-      details.style = 'transition: opacity 0s, line-height 1s; opacity: 0; line-height: 0%;'
+      details.style =
+        "transition: opacity 0s, line-height 1s; opacity: 0; line-height: 0%;";
     }
   }
 
@@ -63,6 +64,8 @@ const AccordionContainerStyle = styled.div`
 
   h2 {
     margin: 0.937rem; /*15px*/
+    font-size: 1.5rem; /*24px*/
+    font-weight: bold;
   }
 
   img {
@@ -73,10 +76,10 @@ const AccordionContainerStyle = styled.div`
   }
 
   .details {
-    margin: 1.562rem 0 0 1.25rem; /*25px 0 0 20px*/
+    margin: 1.562rem 0 1.25rem 1.25rem; /*25px 0 20px 20px*/
     font-size: 1.125rem; /*18px*/
     color: #000000;
-    opacity: 0; 
+    opacity: 0;
     line-height: 0%;
     background-color: rgba(246, 246, 246, 0.45);
     border-radius: 0 5px 5px 0;
@@ -98,5 +101,28 @@ const AccordionContainerStyle = styled.div`
     font-weight: 400;
     width: 100%;
     margin-bottom: 0.125rem; /*2px*/
+  }
+
+  /****** Media queries ***********/
+  /* Small devices (smartphones, less than/equal to 375px) */
+  @media (max-width: 376px) {
+    h2 {
+      font-size: 0.812rem; /*13px*/
+      margin: 0.625rem; /*10px*/
+    }
+
+    img {
+      width: 1rem; /*16px*/
+      bottom: 0.875rem; /*14px*/
+    }
+
+    .details {
+      margin: 0.812rem 0 1.25rem 1.25rem; /*13px 0 20px 20px*/
+      font-size: 0.75rem; /*12px*/
+    }
+
+    ul li {
+      font-size: 0.75rem; /*12px*/
+    }
   }
 `;

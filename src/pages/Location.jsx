@@ -74,7 +74,7 @@ function buildRating(rating) {
   let stars = [];
 
   for (let i = 1; i <= 5; i++) {
-    if(i <= rating) {
+    if (i <= rating) {
       stars.push("/src/assets/pink-star.svg");
     } else {
       stars.push("/src/assets/grey-star.svg");
@@ -166,6 +166,14 @@ const LocationContainerStyled = styled.div`
       background-color: transparent;
       margin-right: 0;
       width: 10%;
+    }
+  }
+
+  /****** Media queries ***********/
+  /* Small devices (smartphones, less than/equal to 375px) */
+  @media (max-width: 376px) {
+    .title {
+      font-size: 1.125rem; /*18px*/
     }
   }
 `;

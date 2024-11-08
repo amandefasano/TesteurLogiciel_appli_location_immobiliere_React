@@ -2,9 +2,11 @@ import styled from "styled-components";
 
 export default function Banner({ opacity, img_src, tagline }) {
   const p = document.querySelector("p");
+  const img = document.querySelector(".banner-img");
 
   if (p) {
     if (opacity) {
+      img.style = "box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);"
       p.style = `background-color: rgba(0, 0, 0, ${opacity})`;
     }
   }
@@ -12,7 +14,7 @@ export default function Banner({ opacity, img_src, tagline }) {
   return (
     <>
       <BannerContainerStyled>
-        <img src={img_src} alt="wild picture" />
+        <img className="banner-img" src={img_src} alt="wild picture" />
         <p>{tagline}</p>
       </BannerContainerStyled>
     </>
@@ -28,12 +30,11 @@ const BannerContainerStyled = styled.div`
     height: 13.937rem; /*223px*/
     border-radius: 25px;
     object-fit: cover;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   }
 
   p {
     position: absolute;
-    top: 0;
+    top: -0.125rem; /*-2px*/
     left: 0;
     display: flex;
     align-items: center;
@@ -57,6 +58,7 @@ const BannerContainerStyled = styled.div`
     img {
       max-width: 20.937rem; /*335px*/
       height: 6.937rem; /*111px*/
+      box-shadow: unset;
     }
 
     p {

@@ -1,10 +1,12 @@
 import styled from "styled-components";
 
 export default function Footer() {
+  const rights = "© 2020 Kasa. All\nrights reserved"
+
   return (
     <FooterContainerStyled>
       <img src="/src/assets/LOGO-white.svg"></img>
-      <p>© 2020 Kasa. All rights reserved</p>
+      <p>{rights}</p>
     </FooterContainerStyled>
   );
 }
@@ -34,9 +36,12 @@ const FooterContainerStyled = styled.div`
   @media (max-width: 376px) {
 
   p {
-    margin: 0;
+    margin: 0 0 3.625rem 0; /*58px*/
     font-size: 0.75rem; /*12px*/
-    height: 
+    height: 2.875rem; /*46px*/
+    white-space: pre-wrap;
+    text-align: center;
+    align-content: end;
   }
   }
 `;
