@@ -21,6 +21,14 @@ body{
 p{
 margin: 0;
 }
+
+  /****** Media queries ***********/
+  /* Small devices (smartphones, less than/equal to 375px) */
+@media (max-width: 376px) {
+  body {
+    margin: 0 1.25rem /*0 20px*/
+  }
+}
 `;
 
 const router = createBrowserRouter([

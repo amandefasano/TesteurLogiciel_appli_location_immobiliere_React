@@ -45,9 +45,9 @@ function Location() {
           })}
         </ul>
         <ul className="stars">
-          {stars.map((star) => {
+          {stars.map((star, index) => {
             return (
-              <li className="star" key={`star-${stars.indexOf(star)}`}>
+              <li className="star" key={`star-${index}`}>
                 <img src={star} alt="star" />
               </li>
             );

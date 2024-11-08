@@ -78,6 +78,8 @@ const AccordionContainerStyle = styled.div`
     color: #000000;
     opacity: 0; 
     line-height: 0%;
+    background-color: rgba(246, 246, 246, 0.45);
+    border-radius: 0 5px 5px 0;
   }
 
   .details ul {
