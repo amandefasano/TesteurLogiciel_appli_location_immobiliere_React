@@ -158,17 +158,59 @@ const LocationContainerStyled = styled.div`
 
     .title {
       font-size: 1.125rem; /*18px*/
+      padding-top: 0;
+      margin-top: 0.937rem; /*15px*/
+    }
+
+    .district {
+      font-size: 0.875rem; /*14px*/
+      margin-top: 7px;
+    }
+
+    .host-wrapper {
+      margin: 1rem 0 0.812rem; /*16px 0 13px*/
+    }
+
+    .host {
+      margin: 0;
+    }
+
+    .hostName {
+      font-size: 0.75rem; /*12px*/
+    }
+
+    .hostPicture {
+      width: 2rem; /*32px*/
+      height: 2rem; /*32px*/
+    }
+
+    .location-wrapper {
+      width: 100%;
+    }
+
+    .location-wrapper ul {
+      flex-wrap: wrap;
+      width: 100%;
+      margin: 0;
+    }
+
+    .location-wrapper ul li {
+      font-size: 0.625rem; /*10px*/
+      width: unset;
+      padding: 0.25rem 1.562rem; /*4px 25px*/
+      margin-top: 0.625rem; /*10px*/
     }
 
     .host-wrapper {
       display: flex;
       flex-direction: row-reverse;
+      justify-content: space-between;
     }
 
     #accordion-wrapper {
-      display: grid;
-      grid-template-columns: 100%;
-      grid-template-rows: 3.125rem 3.125rem; /*50px 50px*/
+      display: flex;
+      flex-direction: column;
+      gap: unset;
     }
   }
 `;

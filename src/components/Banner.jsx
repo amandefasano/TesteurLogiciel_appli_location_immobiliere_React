@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export default function Banner({ opacity, img_src, tagline }) {
-
   return (
     <>
       <BannerContainerStyled>
@@ -10,7 +9,7 @@ export default function Banner({ opacity, img_src, tagline }) {
           src={img_src}
           alt="wild picture"
         />
-        <p style={{backgroundColor : `rgba(0, 0, 0, ${opacity})`}} >
+        <p style={{ backgroundColor: `rgba(0, 0, 0, ${opacity})` }}>
           {tagline}
         </p>
       </BannerContainerStyled>
@@ -34,7 +33,7 @@ const BannerContainerStyled = styled.div`
 
   p {
     position: absolute;
-    top: -0.125rem; /*-2px*/
+    top: 0; /*-0.125rem;*/ /*-2px*/
     left: 0;
     display: flex;
     align-items: center;
@@ -57,7 +56,9 @@ const BannerContainerStyled = styled.div`
     img {
       max-width: 20.937rem; /*335px*/
       height: 6.937rem; /*111px*/
-      box-shadow: unset;
+      &.shadow-banner-img {
+        box-shadow: unset;
+      }
     }
 
     p {

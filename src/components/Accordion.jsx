@@ -10,13 +10,13 @@ export default function Accordion({ id, header, details }) {
       arrow.setAttribute("id", "down");
 
       details.style =
-        "transition: opacity 0.5s, line-height 1s; opacity: 1; line-height: 100%;";
+        "transition: opacity 1s, line-height 0.5s; opacity: 1; line-height: 100%;"
     } else {
       arrow.style = "transition: transform 0.6s; transform: rotate(0deg);";
       arrow.setAttribute("id", "up");
 
       details.style =
-        "transition: opacity 0s, line-height 1s; opacity: 0; line-height: 0%;";
+        "transition: opacity 1s, line-height 0.5s, margin-top 0.5s; opacity: 0; line-height: 0%; margin-top: 0;";
     }
   }
 
@@ -76,7 +76,8 @@ const AccordionContainerStyle = styled.div`
   }
 
   .details {
-    margin: 1.562rem 0 1.25rem 1.25rem; /*25px 0 20px 20px*/
+    margin: 0 0 1.25rem 1.25rem; /*0 0 20px 20px*/
+    padding-top: 1.562rem; /*25px*/
     font-size: 1.125rem; /*18px*/
     color: #000000;
     opacity: 0;
@@ -117,7 +118,8 @@ const AccordionContainerStyle = styled.div`
     }
 
     .details {
-      margin: 0.812rem 0 1.25rem 1.25rem; /*13px 0 20px 20px*/
+      margin: 0 0 1.25rem 1.25rem; /*0 0 20px 20px*/
+      padding-top: 0.812rem; /*13px*/
       font-size: 0.75rem; /*12px*/
     }
 

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export function Rating(rating) {
-
   return (
     <RatingContainerStyled>
       <ul className="stars">
@@ -47,9 +46,25 @@ const RatingContainerStyled = styled.div`
     align-items: center;
     justify-content: center;
     width: 10%;
-    font-size: 0.875rem; /*14px*/
-    font-weight: bold;
     border-radius: 10px;
     margin-left: 1rem; /*16px*/
+  }
+
+  /****** Media queries ***********/
+  /* Small devices (smartphones, less than/equal to 375px) */
+  @media (max-width: 376px) {
+    .stars {
+      justify-content: flex-start;
+      margin: 0;
+      padding-top: 0.5rem; /*8px*/
+    }
+
+    .star {
+      margin: 0 0.5rem 0 0; /*8px*/
+    }
+
+    .star img {
+      height: 0.812rem; /*13px*/
+    }
   }
 `;

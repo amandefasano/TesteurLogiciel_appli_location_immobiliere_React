@@ -44,7 +44,7 @@ export default function Slider({ photos }) {
   return (
     <GalleryContainerStyled id="slider">
       <img className="slider_img" src={photos[0]} alt="Location pictures" />
-      {/* <div className={photos.length === 1 ? "hidden" : "arrows"}> */}
+      <div className={photos.length === 1 ? "hidden" : "arrows"}>
       <img
         onClick={handleLeftArrowClick}
         className="arrow_left"
@@ -57,7 +57,7 @@ export default function Slider({ photos }) {
         src="/src/assets/arrow-right.svg"
         alt="Slider right arrow"
       />
-      {/* </div> */}
+      </div>
       <p className={photos.length === 1 ? "hidden" : "pagination"}>
         <span id="picture">1</span>/{photos.length}
       </p>
