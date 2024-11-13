@@ -1,32 +1,15 @@
+import { useState } from "react";
 import styled from "styled-components";
 
 export default function Accordion({ id, header, details }) {
-  function handleClick() {
-    let details = document.querySelector(`#${id} + div`);
-    let arrow = document.querySelector(`#${id} img`);
-
-    if (arrow.getAttribute("id") === "up") {
-      arrow.style = "transition: transform 0.6s; transform: rotate(-180deg);";
-      arrow.setAttribute("id", "down");
-
-      details.style =
-        "transition: opacity 1s, line-height 0.5s; opacity: 1; line-height: 100%;"
-    } else {
-      arrow.style = "transition: transform 0.6s; transform: rotate(0deg);";
-      arrow.setAttribute("id", "up");
-
-      details.style =
-        "transition: opacity 1s, line-height 0.5s, margin-top 0.5s; opacity: 0; line-height: 0%; margin-top: 0;";
-    }
-  }
+  let [open, setOpen] = useState(false);
 
   return (
-    <AccordionContainerStyle>
-      <div id={id} className="accordion-header">
+    <AccordionContainerStyled id={id} className={open ? "open" : ""}>
+      <div className="accordion-header">
         <h2>{header}</h2>
         <img
-          id="up"
-          onClick={handleClick}
+          onClick={() => setOpen(!open)}
           src="/src/assets/arrow-up.svg"
           alt="arrow"
         />
@@ -42,14 +25,16 @@ export default function Accordion({ id, header, details }) {
           </ul>
         )}
       </div>
-    </AccordionContainerStyle>
+    </AccordionContainerStyled>
   );
 }
 
-const AccordionContainerStyle = styled.div`
+const AccordionContainerStyled = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  overflow: hidden;
+  position: relative;
 
   .accordion-header {
     display: flex;
@@ -73,17 +58,29 @@ const AccordionContainerStyle = styled.div`
     right: 1.125rem; /*18px*/
     bottom: 1.5rem; /*24px*/
     cursor: pointer;
+    transition: transform 0.6s;
+  }
+
+  &.open img {
+    transform: rotate(-180deg);
   }
 
   .details {
-    margin: 0 0 1.25rem 1.25rem; /*0 0 20px 20px*/
+    margin-left: 1.25rem; /*20px*/
     padding-top: 1.562rem; /*25px*/
     font-size: 1.125rem; /*18px*/
     color: #000000;
-    opacity: 0;
-    line-height: 0%;
     background-color: rgba(246, 246, 246, 0.45);
     border-radius: 0 5px 5px 0;
+    transition: top 0.3s;
+    position: absolute;
+    top: -89%;
+    z-index: -1;
+  }
+
+  &.open .details {
+    position: relative;
+    top: 0;
   }
 
   .details ul {
@@ -118,7 +115,6 @@ const AccordionContainerStyle = styled.div`
     }
 
     .details {
-      margin: 0 0 1.25rem 1.25rem; /*0 0 20px 20px*/
       padding-top: 0.812rem; /*13px*/
       font-size: 0.75rem; /*12px*/
     }

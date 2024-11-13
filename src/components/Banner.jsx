@@ -39,7 +39,7 @@ const BannerContainerStyled = styled.div`
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 100%;
+    height: 98%;
     color: #ffffff;
     font-size: 3rem; /*48px*/
     font-weight: bold;

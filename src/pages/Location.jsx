@@ -147,6 +147,7 @@ const LocationContainerStyled = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4.75rem; /*76px*/
+    margin-bottom: 3.125rem; /*50px*/
   }
 
   /****** Media queries ***********/
@@ -211,6 +212,11 @@ const LocationContainerStyled = styled.div`
       display: flex;
       flex-direction: column;
       gap: unset;
+      margin-bottom: 1.25rem; /*20px*/
+    }
+
+    #description {
+      margin-bottom: 1.25rem; /*20px*/
     }
   }
 `;

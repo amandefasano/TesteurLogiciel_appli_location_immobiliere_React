@@ -14,7 +14,11 @@ export default function About() {
 
   return (
     <AboutContainerStyled>
-      <Banner className="banner" opacity="0.3" img_src={"/src/assets/about-banner.png"} />
+      <Banner
+        className="banner"
+        opacity="0.3"
+        img_src={"/src/assets/about-banner.png"}
+      />
       <div className="accordion">
         <Accordion id="reliability" header="Fiabilité" details={reliability} />
       </div>
@@ -32,17 +36,24 @@ export default function About() {
 }
 
 const AboutContainerStyled = styled.section`
-  margin: 0;
-
   #reliability {
     margin-top: 2.375rem; /*38px*/
+  }
+
+  .accordion {
+    margin-bottom: 3.125rem; /*50px*/
   }
 
   /****** Media queries ***********/
   /* Small devices (smartphones, less than/equal to 375px) */
   @media (max-width: 376px) {
+    .accordion {
+      margin-bottom: 1.25rem; /*20px*/
+    }
+
     #reliability {
-      margin-top: 1.187rem; /*19px*/
+      margin-top: 1.187rem; /*19px*
+      margin-bottom: 1.25rem; /*20px*/
     }
   }
 `;
