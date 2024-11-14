@@ -8,7 +8,7 @@ import { createGlobalStyle } from "styled-components";
 
 /* pages */
 import Root from "./pages/Root";
-import ErrorPage from "./ErrorPage";
+import ErrorPage from "./pages/ErrorPage";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Location, { loader as locationLoader } from "./pages/Location";
