@@ -2,7 +2,7 @@ import * as React from "react";
 import * as ReactDOM from "react-dom/client";
 import {
   createBrowserRouter,
-  RouterProvider /*BrowserRouter, Routes, Route*/,
+  RouterProvider,
 } from "react-router-dom";
 import { createGlobalStyle } from "styled-components";
 
@@ -61,13 +61,6 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    {/* <BrowserRouter>
-    <Routes>
-        <Route path="/" element={<Home />}/> 
-        <Route path="/about" element={<About />}/> 
-        <Route path="*" element={<ErrorPage />}/> 
-      </Routes> */}
-    {/* </BrowserRouter> */}
     <GlobalStyle />
     <RouterProvider router={router} />
   </React.StrictMode>
