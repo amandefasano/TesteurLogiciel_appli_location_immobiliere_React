@@ -80,16 +80,6 @@ const HomeContainerStyled = styled.div`
       margin: 0;
     }
 
-    // ul {
-    //   display: flex;
-    //   flex-direction: column;
-    //   width: 100%;
-    //   background-color: unset;
-    //   padding: unset;
-    //   list-style-type: none;
-    //   margin: 0;
-    // }
-
     ul li {
       height: 15.937rem; /*255px*/
     }
@@ -100,12 +90,6 @@ const CardLink = styled(NavLink)`
   text-decoration: none;
   margin: 0;
   padding: 0;
-
-  /****** Media queries ***********/
-  /* Small devices (smartphones, less than/equal to 375px) */
-  @media (max-width: 376px) {
-    // margin-bottom: 1.25rem; /*20px*/
-  }
 `;
 
 export default Home;
